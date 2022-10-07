@@ -1,0 +1,15 @@
+@use "./mixins.scss" as mixins;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@include mixins.themes;
+@include mixins.headerStyle;
+@include mixins.sectionOneStyle;
+@include mixins.sectionTwoStyle;

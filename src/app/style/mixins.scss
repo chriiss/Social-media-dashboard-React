@@ -1,0 +1,282 @@
+@use "./variables.scss" as var;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Raleway:wght@300&display=swap');
+
+@mixin transition {
+    transition: all .75s ease-in-out;
+    -webkit-transition: all .75s ease-in-out;
+    -moz-transition: all .75s ease-in-out;
+    -ms-transition: all .75s ease-in-out;
+    -o-transition: all .75s ease-in-out;
+}
+
+@mixin percentStyle {
+    .green {
+        color: rgb(2, 105, 2);
+    }
+    .red {
+        color: rgb(189, 0, 0);
+    }
+}
+
+@mixin toggleStyle {
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var.$primary_color;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: var.$light_card_color;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      input:checked + .slider {
+        background-image: var.$slider_gradient;
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        background: var.$dark_color;
+      }
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
+}
+
+@mixin themes {
+    .dark {
+        background-color: var.$dark_color;
+        color: var.$light_color;
+        @include transition;
+
+        .sectionOne, .sectionTwo {
+            &_card {
+                background-color: var.$dark_card_color;
+                color: var.$light_card_color;
+            }
+        }
+
+    }
+    .light {
+        background-color: var.$light_color;
+        color: var.$dark_color;
+        @include transition;
+        .sectionOne, .sectionTwo {
+            &_card {
+                background-color: var.$light_card_color;
+            }
+        }
+    }
+    .sectionOne, .sectionTwo {
+        &_card {
+            background-color: var.$light_card_color;
+            color: var.$dark_card_color;
+        }
+    }
+}
+
+@mixin borderRadius {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+@mixin cardNameToDayStyle {
+    display: flex;
+    align-items: center;
+    gap:.75rem;
+    font-size: var.$small-font;
+    font-weight: bold;
+    @include percentStyle;
+}
+
+@mixin headerStyle {
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        @media (max-width: var.$breakpoint_tablet) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-left: 2rem;
+            gap: 2rem;
+        }
+
+        &_text {
+            flex: 0.62;
+            line-height: 1rem;
+            h1::first-letter, p::first-letter {
+                text-transform: uppercase;
+                text-align: justify;
+            }
+            @media (max-width: var.$breakpoint_tablet) {
+                border-bottom: 1px solid #e3e3e3;
+                width: var.$width_tablet;
+                line-height: 2rem;
+            }
+        }
+
+        &_toggle {
+            flex: 0.14;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+            @media (max-width: var.$breakpoint_tablet) {
+                justify-content: space-between;
+                width: var.$width_tablet;
+            }
+        }
+
+        p, span {
+            color: var.$primary_color;
+        }
+
+        @include toggleStyle;
+    }
+}
+
+@mixin sectionStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: var.$breakpoint_tablet) {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: var.$width_tablet;
+    }
+}
+
+@mixin cardStyle {
+    width: 18.8rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    margin-top: 1rem;
+    @include borderRadius;
+    @media (max-width: var.$breakpoint_tablet) {
+        width: var.$width_tablet;
+    }
+}
+
+@mixin sectionOneStyle {
+    .sectionOne {
+        @include sectionStyle;
+        &_card {
+            @include cardStyle;
+            justify-content: center;
+            align-items: center;
+            @include borderRadius;
+            &_name {
+                @include cardNameToDayStyle;
+                color: rgb(92, 92, 92);
+            }
+            &_nb {
+                font-size: var.$big-font;
+                margin-top: 0rem;
+            }
+            p:nth-child(3) {
+                font-size: 20px;
+                margin-top: -.75rem;
+                font-family: 'Raleway', sans-serif;
+                color: var.$primary_color;
+                text-transform: uppercase;
+                margin-bottom: 2rem;
+            }
+            &_toDay {
+                @include cardNameToDayStyle;
+            }
+        }
+        &_card:nth-child(-n+2) {
+            border-top: var.$border_size var.$border_color;
+        }
+        &_card:nth-child(3) {
+            border-top: var.$border_size;
+            border-image: var.$border_color_instagram 1;
+        }
+
+        &_card:last-child {
+            border-top: var.$border_size var.$border_color_yt;
+        }
+    }
+}
+
+
+@mixin sectionTwoStyle {
+    .title {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        h2 {
+            flex: .89;
+            text-align: justify;
+        }
+    }
+    .sectionTwo {
+        @include sectionStyle;
+
+        &_card {
+            @include cardStyle;
+            gap: 2rem;
+            &_children {
+               display: flex;
+               justify-content: space-between;
+               align-items: flex-end;
+               padding-left: 1rem;
+               padding-right: 1rem;
+
+               &_nb {
+                font-size: calc(var.$big-font/2);
+               }
+               &_percent {
+                @include cardNameToDayStyle;
+               }
+            }
+        }
+    }
+}

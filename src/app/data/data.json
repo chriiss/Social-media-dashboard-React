@@ -1,0 +1,106 @@
+{
+    "headerComponent": {
+        "title": "social Media Dashboard",
+        "text": {
+            "followers": "total Followers 23,004",
+            "darkMode": "Dark Mode"
+        }
+    },
+    "sectionOneComponent": {
+        "dashboard": [
+           {
+            "img": "icon-facebook.svg",
+            "name": "@nathanf",
+            "followersNumber": 1987,
+            "followersText": "followers",
+            "toDay": "12 Today",
+            "arrow": "icon-up.svg"
+           },
+           {
+            "img": "icon-twitter.svg",
+            "name": "@nathanf",
+            "followersNumber": 1044,
+            "followersText": "followers",
+            "toDay": "99 Today",
+            "arrow": "icon-up.svg"
+           },
+           {
+            "img": "icon-instagram.svg",
+            "name": "@realnathanf",
+            "followersNumber": 11000,
+            "followersText": "followers",
+            "toDay": "1099 Today",
+            "arrow": "icon-up.svg"
+           },
+           {
+            "img": "icon-youtube.svg",
+            "name": "@Nathan F.",
+            "followersNumber": 8239,
+            "followersText": "subscribers",
+            "toDay": "144 Today",
+            "arrow": "icon-down.svg"
+           }
+        ]
+    },
+    "sectionTwoComponent": {
+        "title": "Overview - Today",
+        "dashboard": [
+            {
+                "perf": "Page Views",
+                "img": "icon-facebook.svg",
+                "nb": 87,
+                "percent": "3%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Likes",
+                "img": "icon-facebook.svg",
+                "nb": 52,
+                "percent": "2%",
+                "arrow": "icon-down.svg"
+            },
+            {
+                "perf": "Likes",
+                "img": "icon-instagram.svg",
+                "nb": 5462,
+                "percent": "2257%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Profile Views",
+                "img": "icon-instagram.svg",
+                "nb": 52000,
+                "percent": "1375%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Retweets",
+                "img": "icon-twitter.svg",
+                "nb": 117,
+                "percent": "303%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Likes",
+                "img": "icon-twitter.svg",
+                "nb": 507,
+                "percent": "553%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Likes",
+                "img": "icon-youtube.svg",
+                "nb": 107,
+                "percent": "19%",
+                "arrow": "icon-up.svg"
+            },
+            {
+                "perf": "Total Views",
+                "img": "icon-youtube.svg",
+                "nb": 1407,
+                "percent": "12%",
+                "arrow": "icon-up.svg"
+            }
+        ]
+    }
+}
